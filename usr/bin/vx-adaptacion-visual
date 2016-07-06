@@ -3,10 +3,18 @@
 USUARIO=$(who | grep " :0 " | cut -d" " -f1)
 HOMEUSUARIO=$(getent passwd | grep $USUARIO | cut -d":" -f6)
 
-# Ajustamos el tamaño de los iconos
+# Ajustamos el tamaño de los iconos e indicamos el tamaño máximo del archivo en KBs del cual se visualizará su thumbnail
 RUTA="$HOMEUSUARIO/.config/libfm/libfm.conf"
-if [[ -f $RUTA ]] && grep "big_icon_size=" $RUTA &> /dev/null ; then
-	sed --follow-symlinks -i "s/big_icon_size=.*/big_icon_size=96/g" $RUTA
+if test -f $RUTA ; then
+	if grep "big_icon_size=" $RUTA &> /dev/null ; then
+		sed --follow-symlinks -i "s/big_icon_size=.*/big_icon_size=96/g" $RUTA
+	fi
+	if grep "thumbnail_max=" $RUTA &> /dev/null ; then
+		sed --follow-symlinks -i "s/thumbnail_max=.*/thumbnail_max=10024/g" $RUTA
+	fi
+	if grep "pane_icon_size=" $RUTA &> /dev/null ; then
+		sed --follow-symlinks -i "s/pane_icon_size=.*/pane_icon_size=36/g" $RUTA
+	fi
 fi
 
 # Ajustamos el tamaño de la letra del Escritorio:
@@ -15,8 +23,11 @@ if [[ -f $RUTA ]] && grep "desktop_font=" $RUTA &> /dev/null ; then
 	sed --follow-symlinks -i "s/desktop_font=.*/desktop_font=Ubuntu 16/g" $RUTA
 fi
 
-# Ajustamos el tamaño del ratón:
+# Ajustamos el tamaño del ratón, y las fuentes en general:
 RUTA="$HOMEUSUARIO/.config/lxsession/Lubuntu/desktop.conf"
 if [[ -f $RUTA ]] && grep "iGtk/CursorThemeSize=" $RUTA &> /dev/null ; then
 	sed --follow-symlinks -i "s#iGtk/CursorThemeSize=.*#iGtk/CursorThemeSize=72#g" $RUTA
+fi
+if [[ -f $RUTA ]] && grep "sGtk/FontName=" $RUTA &> /dev/null ; then
+	sed --follow-symlinks -i "s#sGtk/FontName=.*#sGtk/FontName=Ubuntu 16#g" $RUTA
 fi
