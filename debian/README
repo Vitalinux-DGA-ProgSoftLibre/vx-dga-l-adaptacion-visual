@@ -1,0 +1,16 @@
+The Debian Package vx-dga-l-adaptacion-visual
+----------------------------
+
+Paquete encargado de personalizar el aspecto del entorno de Escritorio y Explorador de Archivos PCmanFM de Lubuntu/Vitalinux, con la finalidad de:
+
+1. Aumentar los tamaños de los iconos del Escritorio y Explorador de Archivos:
+  * Archivo: ~/.config/libfm/libfm.conf
+  * Directiva: big_icon_size=96
+2. Aumentar el tamaño de la letra: 
+  * Archivo: ~/.config/pcmanfm/lubuntu/desktop-items-0.conf
+  * Directiva: desktop_font=Ubuntu 16
+3. Cambiar el tamaño del Ratón:
+  * Archivo: ~/.config/lxsession/Lubuntu/desktop.conf
+  * Directiva: iGtk/CursorThemeSize=72
+
+ -- Arturo Martín <amartinromero@gmail.com>  Tue, 5 Jul 2016 01:00:00 +0200

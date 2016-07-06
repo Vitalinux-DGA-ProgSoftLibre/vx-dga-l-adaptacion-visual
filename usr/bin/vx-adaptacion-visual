@@ -1,0 +1,22 @@
+#!/bin/bash
+
+USUARIO=$(who | grep " :0 " | cut -d" " -f1)
+HOMEUSUARIO=$(getent passwd | grep $USUARIO | cut -d":" -f6)
+
+# Ajustamos el tamaño de los iconos
+RUTA="$HOMEUSUARIO/.config/libfm/libfm.conf"
+if [[ -f $RUTA ]] && grep "big_icon_size=" $RUTA &> /dev/null ; then
+	sed --follow-symlinks -i "s/big_icon_size=.*/big_icon_size=96/g" $RUTA
+fi
+
+# Ajustamos el tamaño de la letra del Escritorio:
+RUTA="$HOMEUSUARIO/.config/pcmanfm/lubuntu/desktop-items-0.conf"
+if [[ -f $RUTA ]] && grep "desktop_font=" $RUTA &> /dev/null ; then
+	sed --follow-symlinks -i "s/desktop_font=.*/desktop_font=Ubuntu 16/g" $RUTA
+fi
+
+# Ajustamos el tamaño del ratón:
+RUTA="$HOMEUSUARIO/.config/lxsession/Lubuntu/desktop.conf"
+if [[ -f $RUTA ]] && grep "iGtk/CursorThemeSize=" $RUTA &> /dev/null ; then
+	sed --follow-symlinks -i "s#iGtk/CursorThemeSize=.*#iGtk/CursorThemeSize=72#g" $RUTA
+fi

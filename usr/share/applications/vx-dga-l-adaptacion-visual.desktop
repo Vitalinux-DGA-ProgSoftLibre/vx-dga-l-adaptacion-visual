@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Adaptación Visual
+Name[es]=Adaptación Visual
+Name[es_ES]=Adaptación Visual
+Comment=Aumenta el tamaño del cursor, de la letra e iconos del Escritorio y del Explorador de Archivos
+Exec=/usr/bin/vx-adaptacion-visual
+Icon=lupa
+Categories=Education;
+Type=Application
+Terminal=false

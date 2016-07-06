@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Adaptación Visual
+Name[es_ES]=Adaptación Visual
+Exec=/usr/bin/vx-adaptacion-visual
+Encoding=UTF-8
+Type=Application
+X-GNOME-Autostart-enabled=true
