@@ -27,7 +27,8 @@ case "$1" in
 			echo "/usr/bin/vx-adaptacion-visual" >> /usr/bin/tareas-logout
 		fi
 	fi
-
+	# Ejecutamos el Script que provoca la configuración necesaria para la adaptacion visual:
+	/usr/bin/vx-adaptacion-visual
 	;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
