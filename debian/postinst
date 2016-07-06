@@ -21,9 +21,11 @@ set -e
 case "$1" in
 	configure)
 	# Agregamos el icono de Sozi "sozi.png" al sistema Vitalinux en diferentes tamaños
-
-	if [[ -f /usr/bin/tareas-logout && -f /usr/bin/vx-adaptacion-visual ]] ; then
-		echo "/usr/bin/vx-adaptacion-visual" >> /usr/bin/tareas-logout
+	if test -f /usr/bin/vx-adaptacion-visual ; then
+		chmod +x /usr/bin/vx-adaptacion-visual
+		if test -f /usr/bin/tareas-logout ; then
+			echo "/usr/bin/vx-adaptacion-visual" >> /usr/bin/tareas-logout
+		fi
 	fi
 
 	;;
