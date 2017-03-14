@@ -1,3 +1,9 @@
+vx-dga-l-adaptacion-visual (1.0-2) unstable; urgency=low
+
+  * Se elimina la dependencia de tareas-logout. La salida se centraliza en vx-scripts-apagado, configurado en vx-dga-l-skel-usuarios
+
+ -- Ignacio Sancho <sannacho@gmail.com>  Tue, 14 Mar 2017 11:00:00 +0200
+
 vx-dga-l-adaptacion-visual (1.0-1) unstable; urgency=low
 
   * Adaptación visual de los iconos, tamaño de letra y tamaño del cursor

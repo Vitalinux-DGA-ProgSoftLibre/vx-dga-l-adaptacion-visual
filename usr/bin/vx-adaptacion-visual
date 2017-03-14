@@ -1,7 +1,18 @@
 #!/bin/bash
 
-USUARIO=$(who | grep " :0 " | cut -d" " -f1)
-HOMEUSUARIO=$(getent passwd | grep $USUARIO | cut -d":" -f6)
+USUARIO=$(vx-usuario-grafico)
+ejecutor=$(whoami)
+
+if [ -z $USUARIO ] ; then
+	echo `date` "Usuario sin especificar. Salimos"
+	exit 1
+fi
+
+HOMEUSUARIO="$(getent passwd | grep "${USUARIO}:" | cut -d":" -f6)"
+if [ -z $HOMEUSUARIO ] ; then
+	echo `date` "CONDIR: Home sin especificar. Salimos"
+	exit 1
+fi
 
 # Ajustamos el tamaño de los iconos e indicamos el tamaño máximo del archivo en KBs del cual se visualizará su thumbnail
 RUTA="$HOMEUSUARIO/.config/libfm/libfm.conf"
